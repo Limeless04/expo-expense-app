@@ -8,28 +8,32 @@ import { Platform } from 'react-native';
 const tintColorLight = '#007AFF'; // bright iOS-style blue
 const tintColorDark = '#0AEFFF';  // neon cyan for dark mode
 
+
 export const Colors = {
   light: {
-    default: '#E0F2FE',       // light sky blue surface
-    text: '#0F172A',          // deep navy text
-    background: '#efeeeeff',    // pure white background
-    secondaryBackground: '#b2b5b9ff', // light gray background
-    tint: tintColorLight,     // strong vibrant blue
-    icon: '#475569',          // slate gray icons
-    tabIconDefault: '#94A3B8',// muted gray when inactive
+    default: '#E0F2FE',          // light sky blue surface
+    text: '#0F172A',             // deep navy text
+    background: '#efeeeeff',     // light neutral background
+    secondaryBackground: '#b2b5b9ff', // muted gray background
+    card: '#FFFFFF',             // pure white card for contrast
+    tint: tintColorLight,        // strong vibrant blue
+    icon: '#475569',             // slate gray icons
+    tabIconDefault: '#94A3B8',   // muted gray when inactive
     tabIconSelected: tintColorLight, // bright blue active
   },
   dark: {
-    default: '#0F172A',       // deep navy surface
-    text: '#F8FAFC',          // almost white text
-    background: '#020617',    // pure dark background
-      secondaryBackground: '#1E293B', // dark slate for headers/cards
-    tint: tintColorDark,      // neon cyan accent
-    icon: '#CBD5E1',          // light gray icons
-    tabIconDefault: '#64748B',// muted slate gray inactive
+    default: '#0F172A',          // deep navy surface
+    text: '#F8FAFC',             // almost white text
+    background: '#020617',       // pure dark background
+    secondaryBackground: '#1E293B', // dark slate for sections
+    card: '#0F172A',             // slightly lighter than background for cards
+    tint: tintColorDark,         // neon cyan accent
+    icon: '#CBD5E1',             // light gray icons
+    tabIconDefault: '#64748B',   // muted slate gray inactive
     tabIconSelected: tintColorDark, // neon cyan active
   },
 };
+
 
 
 export const Fonts = Platform.select({

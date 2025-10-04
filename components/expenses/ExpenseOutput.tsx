@@ -14,8 +14,7 @@ export type ExpenseOutputProps = {
     expensePeriod: 'recent' | 'all';
 };
 
-
-const DUMMY_EXPENSE: Expense[] = [
+const DUMMY_EXPENSE = [
     {
     id: 'e1',
     description: 'A pair of shoes',
@@ -76,7 +75,67 @@ const DUMMY_EXPENSE: Expense[] = [
     amount: 22.0,
     date: new Date('2024-07-08'),
   },
-]
+  {
+    id: 'e11',
+    description: 'Fuel for car',
+    amount: 55.5,
+    date: new Date('2024-07-15'),
+  },
+  {
+    id: 'e12',
+    description: 'Concert tickets',
+    amount: 150.0,
+    date: new Date('2024-08-01'),
+  },
+  {
+    id: 'e13',
+    description: 'Skincare products',
+    amount: 45.2,
+    date: new Date('2024-08-18'),
+  },
+  {
+    id: 'e14',
+    description: 'Doctor visit',
+    amount: 90.0,
+    date: new Date('2024-09-05'),
+  },
+  {
+    id: 'e15',
+    description: 'Birthday gift',
+    amount: 30.0,
+    date: new Date('2024-09-22'),
+  },
+  {
+    id: 'e16',
+    description: 'Internet bill',
+    amount: 40.0,
+    date: new Date('2024-10-01'),
+  },
+  {
+    id: 'e17',
+    description: 'New book',
+    amount: 18.75,
+    date: new Date('2024-10-10'),
+  },
+  {
+    id: 'e18',
+    description: 'Lunch with colleague',
+    amount: 25.5,
+    date: new Date('2024-10-25'),
+  },
+  {
+    id: 'e19',
+    description: 'Home decor',
+    amount: 75.6,
+    date: new Date('2024-11-05'),
+  },
+  {
+    id: 'e20',
+    description: 'Train ticket',
+    amount: 32.5,
+    date: new Date('2024-11-19'),
+  },
+];
 
 // { expenses, }: ExpenseOutputProps
 export default function ExpenseOutput({expensePeriod}: ExpenseOutputProps) {
