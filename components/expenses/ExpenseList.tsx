@@ -7,7 +7,7 @@ interface ExpenseListProps {
 }
 
 const renderItem = (item: Expense) => {
-  return <ExpenseItem description={item.description} date={item.date} amount={item.amount} />;
+  return <ExpenseItem description={item.description} date={item.date} amount={item.amount} id={item.id} />;
 };
 
 export default function ExpenseList({ expenses }: ExpenseListProps) {

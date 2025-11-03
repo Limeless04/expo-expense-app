@@ -10,8 +10,8 @@ export default function AllExpense() {
   
   return (
     <ParallaxScrollView
-      headerBackgroundColor={{ light: Colors.light.default, dark: Colors.dark.default }}
-      headerComponent={<ThemedHeader title="All Expense" headerBackgroundColor={{ light: Colors.light.default, dark: Colors.dark.default }} />}>
+      headerBackgroundColor={{ light: Colors.light.secondaryBackground, dark: Colors.dark.secondaryBackground }}
+      headerComponent={<ThemedHeader title="All Expense" headerBackgroundColor={{ light: Colors.light.secondaryBackground, dark: Colors.dark.secondaryBackground }} />}>
       <ThemedView style={styles.titleContainer}>
         <ExpenseOutput expensePeriod="all"/>
       </ThemedView>

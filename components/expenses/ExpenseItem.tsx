@@ -1,28 +1,39 @@
 import { Colors } from "@/constants/theme";
+import { useColorScheme } from '@/hooks/use-color-scheme';
 import { getFormattedDate } from "@/utils/formatedDate";
+import { useRouter } from "expo-router";
 import {
-    Pressable,
-    StyleSheet,
-    Text,
-    View,
-    useColorScheme,
+  Pressable,
+  StyleSheet,
+  Text,
+  View,
 } from "react-native";
-
 interface ExpenseItemProps {
+  id: string;
   description: string;
   date: Date;
   amount: number;
 }
 
 export default function ExpenseItem({
+  id,
   description,
   date,
   amount,
 }: ExpenseItemProps) {
-  const colorScheme = useColorScheme();
+  const colorScheme = useColorScheme() ?? "light";
+  const router = useRouter();
+  const handleEditPress = (id: string) => {
+    router.push({ pathname: "/manage", params: { mode: "edit", id } });
+  };
   return (
-    <Pressable android_ripple={{ color: colorScheme === "light" ? Colors.light.text
-                : Colors.dark.text  }} style={({pressed}) => pressed ? {opacity: 0.75} : undefined}>
+    <Pressable
+      android_ripple={{
+        color: Colors[colorScheme].tint
+      }}
+      style={({ pressed }) => (pressed ? { opacity: 0.75 } : undefined)}
+      onPress={() => handleEditPress(id)}
+    >
       <View
         style={[
           styles.expenseItem,

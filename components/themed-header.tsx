@@ -1,11 +1,11 @@
+import { MODES } from "@/app/manage";
 import { ThemedView } from "@/components/themed-view";
 import { Colors } from "@/constants/theme";
 import { useColorScheme } from "@/hooks/use-color-scheme";
-import { usePathname, useRouter } from "expo-router";
+import { useLocalSearchParams, useRouter } from "expo-router";
 import { StyleSheet, Text, View } from "react-native";
 import ThemedButton from "./themed-button";
 import { IconSymbol } from "./ui/icon-symbol";
-
 
 type Props = {
   title: string;
@@ -19,22 +19,24 @@ export function ThemedHeader({
   headerBackgroundColor,
 }: Props) {
   const colorScheme = useColorScheme() ?? "light";
-  const router = useRouter()
-   const pathname = usePathname();
+  const router = useRouter();
+  // const pathname = usePathname();
+  const { mode } = useLocalSearchParams<{
+    mode: "add" | "edit" | "remove";
+  }>();
 
   const handleAddPress = () => {
-    console.log("Add button pressed");
-     router.push("/manage");
+    router.push({ pathname: "/manage", params: { mode: "add" } });
   };
 
   const handleBackButton = () => {
-     router.back();
-  }
+    router.back();
+  };
 
-  const isManageScreen = pathname === "/manage";
+  // const isManageScreen = pathname === "/manage";
 
   return (
-     <ThemedView
+    <ThemedView
       style={[
         styles.container,
         headerBackgroundColor && {
@@ -45,7 +47,7 @@ export function ThemedHeader({
     >
       {/* Left side: Back button only on /manage */}
       <View style={styles.side}>
-        {isManageScreen && (
+        {mode === MODES.ADD && (
           <ThemedButton onPress={handleBackButton}>
             <IconSymbol
               name="arrow-left"
@@ -53,6 +55,11 @@ export function ThemedHeader({
               color={Colors[colorScheme].text}
             />
           </ThemedButton>
+        )}
+
+        {mode === MODES.EDIT && (
+          // Empty placeholder with same width so title stays centered
+          <View style={{ width: 24, height: 24 }} />
         )}
       </View>
 
@@ -63,7 +70,7 @@ export function ThemedHeader({
 
       {/* Right side: Add button only if NOT on /manage */}
       <View style={styles.side}>
-        {!isManageScreen && (
+        {mode == null && (
           <ThemedButton onPress={handleAddPress}>
             <IconSymbol
               name="plus"
@@ -78,7 +85,7 @@ export function ThemedHeader({
 }
 
 const styles = StyleSheet.create({
-container: {
+  container: {
     width: "100%",
     flexDirection: "row",
     alignItems: "center",

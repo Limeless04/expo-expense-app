@@ -9,11 +9,10 @@ import { Colors } from "@/constants/theme";
 export default function RecentExpense() {
   return (
     <ParallaxScrollView
-      headerBackgroundColor={{ light: Colors.light.default, dark: Colors.dark.default }}
-      headerComponent={<ThemedHeader title="Recent Expense" headerBackgroundColor={{ light: Colors.light.default, dark: Colors.dark.default }} />}
+      headerBackgroundColor={{ light: Colors.light.secondaryBackground, dark: Colors.dark.secondaryBackground }}
+      headerComponent={<ThemedHeader title="Recent Expense" headerBackgroundColor={{ light: Colors.light.secondaryBackground, dark: Colors.dark.secondaryBackground }} />}
     >
       <ThemedView style={styles.titleContainer}>
-        {/* <ThemedText type="default">Hello!</ThemedText> */}
         <ExpenseOutput expensePeriod="recent"/>
       </ThemedView>
     </ParallaxScrollView>

@@ -5,34 +5,52 @@
 
 import { Platform } from 'react-native';
 
-const tintColorLight = '#007AFF'; // bright iOS-style blue
-const tintColorDark = '#0AEFFF';  // neon cyan for dark mode
-
-
 export const Colors = {
   light: {
-    default: '#E0F2FE',          // light sky blue surface
-    text: '#0F172A',             // deep navy text
-    background: '#efeeeeff',     // light neutral background
-    secondaryBackground: '#b2b5b9ff', // muted gray background
-    card: '#FFFFFF',             // pure white card for contrast
-    tint: tintColorLight,        // strong vibrant blue
-    icon: '#475569',             // slate gray icons
-    tabIconDefault: '#94A3B8',   // muted gray when inactive
-    tabIconSelected: tintColorLight, // bright blue active
+    default: '#1F2937',              // Dark Gray for default UI elements
+    text: '#111111',                 // Almost Black text
+    background: '#FFFFFF',           // Pure White background
+    secondaryBackground: '#F5F5F5',  // Subtle Light Gray
+    primaryBackground: '#E5E7EB',    // Neutral Gray (button bg default)
+    tertiaryBackground: '#D1D5DB',   // Mid Gray (button hover/active)
+    card: '#FFFFFF',                 // White cards
+    tint: '#000000',                 // Black CTA accent
+    icon: '#4B5563',                 // Medium Gray icons
+    tabIconDefault: '#9CA3AF',       // Muted Gray inactive
+    tabIconSelected: '#111111',      // Almost Black active
+    border: '#E5E7EB',               // Light Neutral border
+
+    // Status Colors
+    success: '#16A34A',
+    warning: '#CA8A04',
+    error: '#DC2626',
+    info: '#6B7280',
   },
+
   dark: {
-    default: '#0F172A',          // deep navy surface
-    text: '#F8FAFC',             // almost white text
-    background: '#020617',       // pure dark background
-    secondaryBackground: '#1E293B', // dark slate for sections
-    card: '#0F172A',             // slightly lighter than background for cards
-    tint: tintColorDark,         // neon cyan accent
-    icon: '#CBD5E1',             // light gray icons
-    tabIconDefault: '#64748B',   // muted slate gray inactive
-    tabIconSelected: tintColorDark, // neon cyan active
+    default: '#E5E7EB',              // Light Gray default
+    text: '#F9FAFB',                 // Almost White text
+    background: '#000000',           // Pure Black background
+    secondaryBackground: '#111827',  // Very Dark Gray
+    primaryBackground: '#1F2937',    // Dark Slate Gray (button bg default)
+    tertiaryBackground: '#374151',   // Darker Gray (button hover/active)
+    card: '#1F2937',                 // Dark Gray card
+    tint: '#FFFFFF',                 // White CTA accent
+    icon: '#D1D5DB',                 // Light Gray icons
+    tabIconDefault: '#6B7280',       // Muted Gray inactive
+    tabIconSelected: '#F9FAFB',      // Almost White active
+    border: '#374151',               // Dark Neutral border
+
+    // Status Colors
+    success: '#22C55E',
+    warning: '#FACC15',
+    error: '#F87171',
+    info: '#9CA3AF',
   },
 };
+
+
+
 
 
 

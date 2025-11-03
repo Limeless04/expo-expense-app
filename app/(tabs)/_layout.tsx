@@ -13,7 +13,7 @@ export default function TabLayout() {
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme].tint,
           tabBarStyle: {
-          backgroundColor: Colors[colorScheme].default, // 👈 match header background
+          backgroundColor: Colors[colorScheme].secondaryBackground, // 👈 match header background
           borderTopWidth: 0, // optional: cleaner look
           elevation: 0, // optional: remove Android shadow
         },

@@ -1,3 +1,5 @@
+import { Colors } from "@/constants/theme";
+import { useColorScheme } from "@/hooks/use-color-scheme";
 import { StyleSheet, View } from "react-native";
 import ExpenseList from "./ExpenseList";
 import ExpenseSummary from "./ExpenseSummary";
@@ -139,8 +141,10 @@ const DUMMY_EXPENSE = [
 
 // { expenses, }: ExpenseOutputProps
 export default function ExpenseOutput({expensePeriod}: ExpenseOutputProps) {
+
+    const colorScheme = useColorScheme() ?? "light";
     return (
-        <View style={styles.container}>
+        <View style={[styles.container, {backgroundColor: Colors[colorScheme].background}]}>
             <ExpenseSummary expenses={DUMMY_EXPENSE} periodName={expensePeriod}  />
             <ExpenseList expenses={DUMMY_EXPENSE}/>
         </View>
