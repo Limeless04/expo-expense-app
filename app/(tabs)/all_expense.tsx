@@ -5,15 +5,17 @@ import ParallaxScrollView from '@/components/parallax-scroll-view';
 import { ThemedHeader } from '@/components/themed-header';
 import { ThemedView } from '@/components/themed-view';
 import { Colors } from '@/constants/theme';
-
+import { ExpenseContext } from '@/store/expense-context';
+import { useContext } from 'react';
 export default function AllExpense() {
+  const expensesCtx = useContext(ExpenseContext)
   
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: Colors.light.secondaryBackground, dark: Colors.dark.secondaryBackground }}
       headerComponent={<ThemedHeader title="All Expense" headerBackgroundColor={{ light: Colors.light.secondaryBackground, dark: Colors.dark.secondaryBackground }} />}>
       <ThemedView style={styles.titleContainer}>
-        <ExpenseOutput expensePeriod="all"/>
+        <ExpenseOutput expenses={expensesCtx.expenses} expensePeriod="all"/>
       </ThemedView>
     </ParallaxScrollView>
   );

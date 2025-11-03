@@ -5,3 +5,7 @@ export function getFormattedDate(date: Date): string {
   
   return `${day}/${month}/${year}`;
 }
+
+export function getDateMinusDay(date: Date, days: number): Date {
+  return new Date(date.getFullYear(), date.getMonth(), date.getDate() - days);
+}

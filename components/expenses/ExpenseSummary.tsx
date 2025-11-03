@@ -1,7 +1,7 @@
 import { Colors } from "@/constants/theme";
+import type { Expense } from "@/store/expense-context";
 import { StyleSheet, useColorScheme, View } from "react-native";
 import { ThemedText } from "../themed-text";
-import type { Expense } from "./ExpenseOutput";
 
 interface ExpenseSummaryProps {
     expenses: Expense[];

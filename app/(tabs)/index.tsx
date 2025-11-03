@@ -5,15 +5,26 @@ import ParallaxScrollView from "@/components/parallax-scroll-view";
 import { ThemedHeader } from "@/components/themed-header";
 import { ThemedView } from "@/components/themed-view";
 import { Colors } from "@/constants/theme";
+import { ExpenseContext } from "@/store/expense-context";
+import { getDateMinusDay } from "@/utils/formatedDate";
+import { useContext } from "react";
 
 export default function RecentExpense() {
+  const expenseCtx = useContext(ExpenseContext)
+
+  const recentExpenses = expenseCtx.expenses.filter((expense) => {
+    const today = new Date()
+    const sevenDaysAgo = getDateMinusDay(today, 7)
+
+    return (expense.date >= sevenDaysAgo) && (expense.date <= today)
+  })
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: Colors.light.secondaryBackground, dark: Colors.dark.secondaryBackground }}
       headerComponent={<ThemedHeader title="Recent Expense" headerBackgroundColor={{ light: Colors.light.secondaryBackground, dark: Colors.dark.secondaryBackground }} />}
     >
       <ThemedView style={styles.titleContainer}>
-        <ExpenseOutput expensePeriod="recent"/>
+        <ExpenseOutput expenses={recentExpenses} expensePeriod="recent"/>
       </ThemedView>
     </ParallaxScrollView>
   );

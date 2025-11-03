@@ -1,16 +1,27 @@
-import { Link } from 'expo-router';
-import { StyleSheet } from 'react-native';
-
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
+import ActionModal from "@/components/action-modal";
+import { ThemedText } from "@/components/themed-text";
+import { ThemedView } from "@/components/themed-view";
+import React, { useState } from "react";
+import { Button, StyleSheet } from "react-native";
 
 export default function ModalScreen() {
+  const [visible, setVisible] = useState(false);
+
   return (
     <ThemedView style={styles.container}>
       <ThemedText type="title">This is a modal</ThemedText>
-      <Link href="/" dismissTo style={styles.link}>
-        <ThemedText type="link">Go to home screen</ThemedText>
-      </Link>
+      <Button title="Show Confirm Modal" onPress={() => setVisible(true)} />
+
+      <ActionModal
+        visible={visible}
+        title="Delete Expense"
+        message="Are you sure you want to delete this item?"
+        onConfirm={() => {
+          setVisible(false);
+          console.log("Confirmed ✅");
+        }}
+        onCancel={() => setVisible(false)}
+      />
     </ThemedView>
   );
 }
@@ -18,12 +29,7 @@ export default function ModalScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 20,
-  },
-  link: {
-    marginTop: 15,
-    paddingVertical: 15,
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
