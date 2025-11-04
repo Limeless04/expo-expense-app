@@ -12,6 +12,7 @@ import { useToast } from "@/store/toast-context";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import { useContext, useState } from "react";
 import { StyleSheet } from "react-native";
+import ExpenseForm from "@/components/expenses/ExpenseForm"
 
 type Mode = "add" | "edit" | "remove";
 
@@ -45,8 +46,6 @@ export default function ManageExpense() {
   }
   const onDeleteButton = () => {
     setConfirmVisible(true);
-    // expenseCtx.deleteExpense(id);
-    // router.back();
   };
 
   const handleSaveExpenseItem = () => {
@@ -90,6 +89,7 @@ export default function ManageExpense() {
       <ThemedView style={styles.container}>
         {(isAddMode || isEditMode) && (
           <>
+            <ExpenseForm />
             <ThemedView style={styles.btnContainer}>
               <ThemedButton
                 onPress={handleSaveExpenseItem}
