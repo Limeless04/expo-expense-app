@@ -1,4 +1,4 @@
-import { MODES } from "@/app/manage";
+import { MODES } from "@/constants/types/modes";
 import { ThemedView } from "@/components/themed-view";
 import { Colors } from "@/constants/theme";
 import { useColorScheme } from "@/hooks/use-color-scheme";

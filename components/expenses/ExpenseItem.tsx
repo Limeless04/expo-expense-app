@@ -1,13 +1,9 @@
 import { Colors } from "@/constants/theme";
-import { useColorScheme } from '@/hooks/use-color-scheme';
+import { useColorScheme } from "@/hooks/use-color-scheme";
+import { formatCurrencyInput } from "@/utils/formatCurrency";
 import { getFormattedDate } from "@/utils/formatedDate";
 import { useRouter } from "expo-router";
-import {
-  Pressable,
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 interface ExpenseItemProps {
   id: string;
   description: string;
@@ -29,7 +25,7 @@ export default function ExpenseItem({
   return (
     <Pressable
       android_ripple={{
-        color: Colors[colorScheme].tint
+        color: Colors[colorScheme].tint,
       }}
       style={({ pressed }) => (pressed ? { opacity: 0.75 } : undefined)}
       onPress={() => handleEditPress(id)}
@@ -85,7 +81,7 @@ export default function ExpenseItem({
               },
             ]}
           >
-            ${amount.toFixed(2)}
+            {formatCurrencyInput(amount)}
           </Text>
         </View>
       </View>
